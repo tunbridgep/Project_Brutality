@@ -20,6 +20,10 @@ addplayerclass BrutalDoomer
    addmenukey "One-Liners" oneliner
    alias oneliner "puke 305"
    
+   addmenukey "Inspect Weapon" inspect
+   alias inspect "netevent InspectWeapon"
+   defaultbind Z unreloader
+   
    
    addkeysection "Project Brutality" PBAdvMoves   
    

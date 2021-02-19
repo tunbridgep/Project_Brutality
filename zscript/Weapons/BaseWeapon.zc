@@ -28,6 +28,20 @@ class PB_WeaponBase : DoomWeapon
 	property FiringLeftWeapon: FiringLeftWeapon;
 	property FiringRightWeapon: FiringRightWeapon;
 	
+	//Handles weapon inspecting
+	protected bool inspected;
+	
+	action bool PB_HasInspected()
+	{
+        return invoker.inspected;
+	}
+	
+	action void PB_SetInspected(bool val)
+	{
+        //if (invoker.owner.player.WeaponState & (WF_WEAPONREADY | WF_WEAPONREADYALT)) //only allow changing inspection state if our weapon counts as "ready"
+            invoker.inspected = val;
+	}
+	
 	// Shoutout to Matt on ZDoom forums for the helpful weapon functions
     action bool PressingFire(){return player.cmd.buttons & BT_ATTACK;}
     action bool PressingAltfire(){return player.cmd.buttons & BT_ALTATTACK;}

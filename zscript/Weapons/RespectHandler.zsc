@@ -1,0 +1,22 @@
+class PB_WeaponRespectHandler : EventHandler
+{
+    override void NetworkProcess(ConsoleEvent e)
+    {
+        if (e.Name == "InspectWeapon")
+        {
+            //Get current weapon
+            let weap = players[e.Player].ReadyWeapon;
+            let pbweap = PB_WeaponBase(weap);
+            
+            if (pbweap)
+            {
+                console.printf("Inspecting weapon...");
+                pbweap.PB_SetInspected(false);
+            }
+            else
+            {
+                console.printf("Not a PB Weapon...");
+            }
+        }
+    }
+}

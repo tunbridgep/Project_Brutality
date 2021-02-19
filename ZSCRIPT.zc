@@ -52,6 +52,7 @@ const MAXITERATIONS = 32676;
 
 //Weapons
 #include "zscript/Weapons/BaseWeapon.zc"
+#include "zscript/Weapons/RespectHandler.zsc"
 
 //Spawners
 #include "zscript/Spawner/PB_SpawnerBase.zc"

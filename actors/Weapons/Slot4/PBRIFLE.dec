@@ -201,11 +201,12 @@ ACTOR Rifle : PB_Weapon
 			}
 		HLMT PQRS 2
 	WeaponRespect:
-		TNT1 A 0 A_JumpIfInventory("RespectRifle",1,"SelectAnimation")
+		TNT1 A 0 A_JumpIf(PB_HasInspected(),"SelectAnimation") //A_JumpIfInventory("RespectRifle",1,"SelectAnimation")
 		TNT1 A 0 A_SetCurrentRifleMode("NormalMode")
 		TNT1 A 0 {
 			A_SetCrosshair(5);
-			A_GiveInventory("RespectRifle");
+			//A_GiveInventory("RespectRifle");
+			PB_SetInspected(true);
 			A_GiveInventory("PB_LockScreenTilt",1);
 			A_PlaySoundEx("weapons/carbine/up", "Auto");
 		}
@@ -252,6 +253,7 @@ ACTOR Rifle : PB_Weapon
 		TNT1 A 0 A_JumpIf(A_GetCurrentRifleMode() == "DualWieldMode", "ReadyDualWield")
 		TNT1 A 0 A_JumpIfInventory("Zoomed",1,"Ready2")
 	ReallyReady:
+        TNT1 A 0 A_JumpIf(!PB_HasInspected(),"WeaponRespect")
 		TNT1 A 0 A_JumpIfInventory("RifleWasEmpty",1,"LoadChamber")
 		RIFG A 1 {
 			if (CountInv("DMRBarrelHeat") >= 60) {
