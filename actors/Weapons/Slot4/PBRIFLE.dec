@@ -123,10 +123,6 @@ Actor IntroductionSequence : Inventory
 {
 inventory.maxamount 1
 }
-Actor RespectRifle : Inventory
-{
-inventory.maxamount 1
-}
 
 ACTOR HalfTicCounter : Inventory { Inventory.MaxAmount 1 }
 
